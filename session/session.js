@@ -98,6 +98,12 @@ defineMethod(Session.prototype, 'reload', function reload(fn) {
   return this;
 });
 
+defineMethod(Session.prototype, 'getStore', function getStore(fn) {
+  var req = this.req
+  var store = this.req.sessionStore
+  return fn(store)
+});
+
 /**
  * Destroy `this` session.
  *
